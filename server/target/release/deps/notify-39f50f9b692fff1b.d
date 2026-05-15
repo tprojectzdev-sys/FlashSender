@@ -1,0 +1,12 @@
+C:\Flash Sender\server\target\release\deps\notify-39f50f9b692fff1b.d: C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\lib.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\windows.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\null.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\poll.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\config.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\error.rs
+
+C:\Flash Sender\server\target\release\deps\libnotify-39f50f9b692fff1b.rlib: C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\lib.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\windows.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\null.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\poll.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\config.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\error.rs
+
+C:\Flash Sender\server\target\release\deps\libnotify-39f50f9b692fff1b.rmeta: C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\lib.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\windows.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\null.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\poll.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\config.rs C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\error.rs
+
+C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\lib.rs:
+C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\windows.rs:
+C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\null.rs:
+C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\poll.rs:
+C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\config.rs:
+C:\Users\ddeni\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\notify-7.0.0\src\error.rs:

@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,11 +51,21 @@ jobs:
             -scheme FileDrop \
             -configuration Release \
             -sdk iphoneos \
+            -destination "generic/platform=iOS" \
             -derivedDataPath build/DerivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             EXPANDED_CODE_SIGN_IDENTITY="" \
+            ONLY_ACTIVE_ARCH=NO \
+            SKIP_INSTALL=NO \
             build
+
+      - name: Verify .app exists
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: |
+          APP_PATH="build/DerivedData/Build/Products/Release-iphoneos/FileDrop.app"
+          test -d "$APP_PATH" || { echo "ERROR: FileDrop.app not found at $APP_PATH"; exit 1; }
+          echo "FileDrop.app found. Size: $(du -sh $APP_PATH | cut -f1)"
 
       - name: Package IPA
         working-directory: ${{ steps.project.outputs.dir }}
