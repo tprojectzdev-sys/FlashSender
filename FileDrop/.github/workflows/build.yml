@@ -1,0 +1,76 @@
+name: FileDrop Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve project directory
+        id: project
+        run: |
+          if [ -f FileDrop.xcodeproj/project.pbxproj ]; then
+            echo "dir=." >> "$GITHUB_OUTPUT"
+          elif [ -f FileDrop/FileDrop.xcodeproj/project.pbxproj ]; then
+            echo "dir=FileDrop" >> "$GITHUB_OUTPUT"
+          else
+            echo "FileDrop.xcodeproj not found" >&2
+            exit 1
+          fi
+
+      - name: Verify AppIcon assets
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: |
+          ICON_DIR="FileDrop/Assets.xcassets/AppIcon.appiconset"
+          test -f "$ICON_DIR/Icon-1024.png" || { echo "Missing $ICON_DIR/Icon-1024.png"; exit 1; }
+          test -f "$ICON_DIR/Icon-180.png" || { echo "Missing iPhone icon sizes"; exit 1; }
+          echo "App icons present."
+
+      - name: Select Xcode 16
+        run: |
+          if [ -d /Applications/Xcode_16.app ]; then
+            sudo xcode-select -s /Applications/Xcode_16.app/Contents/Developer
+          elif [ -d /Applications/Xcode_16.4.app ]; then
+            sudo xcode-select -s /Applications/Xcode_16.4.app/Contents/Developer
+          else
+            sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+          fi
+          xcodebuild -version
+
+      - name: Build unsigned app
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: |
+          xcodebuild \
+            -project FileDrop.xcodeproj \
+            -scheme FileDrop \
+            -configuration Release \
+            -sdk iphoneos \
+            -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            EXPANDED_CODE_SIGN_IDENTITY="" \
+            build
+
+      - name: Package IPA
+        working-directory: ${{ steps.project.outputs.dir }}
+        run: |
+          mkdir -p build/Payload
+          cp -r build/DerivedData/Build/Products/Release-iphoneos/FileDrop.app build/Payload/
+          cd build && zip -r FileDrop.ipa Payload/
+          ls -lh FileDrop.ipa
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: FileDrop-ipa
+          path: ${{ steps.project.outputs.dir }}/build/FileDrop.ipa
+          retention-days: 7
+
+      - name: Build complete
+        run: echo "✅ FileDrop.ipa ready — download from Actions artifacts"

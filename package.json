@@ -1,0 +1,11 @@
+{
+  "name": "filedrop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FileDrop — Rust WebSocket file server (launcher only)",
+  "scripts": {
+    "start": "cargo run --manifest-path server/Cargo.toml",
+    "build": "cargo build --release --manifest-path server/Cargo.toml",
+    "start:release": "server\\target\\release\\filedrop-server.exe"
+  }
+}

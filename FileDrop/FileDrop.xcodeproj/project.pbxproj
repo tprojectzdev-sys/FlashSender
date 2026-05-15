@@ -1,0 +1,331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD1000010000000000000001 /* FileDropApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000001 /* FileDropApp.swift */; };
+		FD1000010000000000000002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000002 /* AppDelegate.swift */; };
+		FD1000010000000000000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000003 /* HomeView.swift */; };
+		FD1000010000000000000004 /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000004 /* SendView.swift */; };
+		FD1000010000000000000005 /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000005 /* ReceiveView.swift */; };
+		FD1000010000000000000006 /* TransferProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000006 /* TransferProgressView.swift */; };
+		FD1000010000000000000007 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000007 /* WebSocketService.swift */; };
+		FD1000010000000000000008 /* MDNSDiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000008 /* MDNSDiscoveryService.swift */; };
+		FD1000010000000000000009 /* FileTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2000010000000000000009 /* FileTransferService.swift */; };
+		FD100001000000000000000A /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD200001000000000000000A /* NotificationService.swift */; };
+		FD100001000000000000000B /* TransferRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD200001000000000000000B /* TransferRecord.swift */; };
+		FD100001000000000000000C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD200001000000000000000C /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FD2000010000000000000001 /* FileDropApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDropApp.swift; sourceTree = "<group>"; };
+		FD2000010000000000000002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FD2000010000000000000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FD2000010000000000000004 /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
+		FD2000010000000000000005 /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
+		FD2000010000000000000006 /* TransferProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferProgressView.swift; sourceTree = "<group>"; };
+		FD2000010000000000000007 /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		FD2000010000000000000008 /* MDNSDiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDNSDiscoveryService.swift; sourceTree = "<group>"; };
+		FD2000010000000000000009 /* FileTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTransferService.swift; sourceTree = "<group>"; };
+		FD200001000000000000000A /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		FD200001000000000000000B /* TransferRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRecord.swift; sourceTree = "<group>"; };
+		FD200001000000000000000C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD200001000000000000000D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD200001000000000000000E /* FileDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD200001000000000000000F /* FileDrop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileDrop.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD3000010000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD4000010000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				FD200001000000000000000F /* FileDrop.entitlements */,
+				FD4000010000000000000002 /* FileDrop */,
+				FD4000010000000000000007 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD4000010000000000000002 /* FileDrop */ = {
+			isa = PBXGroup;
+			children = (
+				FD4000010000000000000003 /* App */,
+				FD4000010000000000000004 /* Views */,
+				FD4000010000000000000005 /* Services */,
+				FD4000010000000000000006 /* Models */,
+				FD200001000000000000000C /* Assets.xcassets */,
+				FD200001000000000000000D /* Info.plist */,
+			);
+			path = FileDrop;
+			sourceTree = "<group>";
+		};
+		FD4000010000000000000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FD2000010000000000000001 /* FileDropApp.swift */,
+				FD2000010000000000000002 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FD4000010000000000000004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD2000010000000000000003 /* HomeView.swift */,
+				FD2000010000000000000004 /* SendView.swift */,
+				FD2000010000000000000005 /* ReceiveView.swift */,
+				FD2000010000000000000006 /* TransferProgressView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FD4000010000000000000005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FD2000010000000000000007 /* WebSocketService.swift */,
+				FD2000010000000000000008 /* MDNSDiscoveryService.swift */,
+				FD2000010000000000000009 /* FileTransferService.swift */,
+				FD200001000000000000000A /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FD4000010000000000000006 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD200001000000000000000B /* TransferRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FD4000010000000000000007 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD200001000000000000000E /* FileDrop.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD5000010000000000000001 /* FileDrop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD6000010000000000000002 /* Build configuration list for PBXNativeTarget "FileDrop" */;
+			buildPhases = (
+				FD5000010000000000000002 /* Sources */,
+				FD3000010000000000000001 /* Frameworks */,
+				FD5000010000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FileDrop;
+			productName = FileDrop;
+			productReference = FD200001000000000000000E /* FileDrop.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD7000010000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					FD5000010000000000000001 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = FD6000010000000000000001 /* Build configuration list for PBXProject "FileDrop" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD4000010000000000000001;
+			productRefGroup = FD4000010000000000000007 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD5000010000000000000001 /* FileDrop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD5000010000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD100001000000000000000C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD5000010000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD1000010000000000000001 /* FileDropApp.swift in Sources */,
+				FD1000010000000000000002 /* AppDelegate.swift in Sources */,
+				FD1000010000000000000003 /* HomeView.swift in Sources */,
+				FD1000010000000000000004 /* SendView.swift in Sources */,
+				FD1000010000000000000005 /* ReceiveView.swift in Sources */,
+				FD1000010000000000000006 /* TransferProgressView.swift in Sources */,
+				FD1000010000000000000007 /* WebSocketService.swift in Sources */,
+				FD1000010000000000000008 /* MDNSDiscoveryService.swift in Sources */,
+				FD1000010000000000000009 /* FileTransferService.swift in Sources */,
+				FD100001000000000000000A /* NotificationService.swift in Sources */,
+				FD100001000000000000000B /* TransferRecord.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FD8000010000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FD8000010000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD8000010000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FileDrop.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FileDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.filedrop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FD8000010000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FileDrop.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FileDrop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.filedrop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD6000010000000000000001 /* Build configuration list for PBXProject "FileDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD8000010000000000000001 /* Debug */,
+				FD8000010000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD6000010000000000000002 /* Build configuration list for PBXNativeTarget "FileDrop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD8000010000000000000003 /* Debug */,
+				FD8000010000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD7000010000000000000001 /* Project object */;
+}
