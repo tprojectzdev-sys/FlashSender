@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-15-xlarge
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,33 +32,70 @@ jobs:
           test -f "$ICON_DIR/Icon-180.png" || { echo "Missing iPhone icon sizes"; exit 1; }
           echo "App icons present."
 
-      - name: Select Xcode 16
+      - name: Select Xcode
+        id: xcode
         run: |
-          if [ -d /Applications/Xcode_16.app ]; then
-            sudo xcode-select -s /Applications/Xcode_16.app/Contents/Developer
+          if [ -d /Applications/Xcode_16.2.app ]; then
+            sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+            echo "profile=modern" >> "$GITHUB_OUTPUT"
+          elif [ -d /Applications/Xcode_16.3.app ]; then
+            sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
+            echo "profile=modern" >> "$GITHUB_OUTPUT"
           elif [ -d /Applications/Xcode_16.4.app ]; then
             sudo xcode-select -s /Applications/Xcode_16.4.app/Contents/Developer
+            echo "profile=modern" >> "$GITHUB_OUTPUT"
+          elif [ -d /Applications/Xcode_16.app ]; then
+            echo "WARNING: Xcode 16.2+ not found; using Xcode_16.app with actool workarounds."
+            echo "Available Xcode installations:"
+            ls /Applications/ | grep Xcode || true
+            sudo xcode-select -s /Applications/Xcode_16.app/Contents/Developer
+            echo "profile=legacy" >> "$GITHUB_OUTPUT"
           else
-            sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+            echo "ERROR: No Xcode 16.2+ found. Available:"
+            ls /Applications/ | grep Xcode || true
+            exit 1
           fi
           xcodebuild -version
+
+      - name: Install iOS 18 Simulator Runtime
+        if: steps.xcode.outputs.profile == 'legacy'
+        run: |
+          # Required due to actool bug in Xcode 16.0 (16A242d) on macos-15-arm64
+          xcodebuild -downloadPlatform iOS -buildVersion 22A3362 || true
+          xcrun simctl list runtimes
 
       - name: Build unsigned app
         working-directory: ${{ steps.project.outputs.dir }}
         run: |
-          xcodebuild \
-            -project FileDrop.xcodeproj \
-            -scheme FileDrop \
-            -configuration Release \
-            -sdk iphoneos \
-            -destination "generic/platform=iOS" \
-            -derivedDataPath build/DerivedData \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO \
-            EXPANDED_CODE_SIGN_IDENTITY="" \
-            ONLY_ACTIVE_ARCH=NO \
-            SKIP_INSTALL=NO \
+          set -e
+          XCODEBUILD_ARGS=(
+            -project FileDrop.xcodeproj
+            -scheme FileDrop
+            -configuration Release
+            -sdk iphoneos
+            -destination "generic/platform=iOS"
+            -derivedDataPath build/DerivedData
+            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_REQUIRED=NO
+            EXPANDED_CODE_SIGN_IDENTITY=""
+            ONLY_ACTIVE_ARCH=NO
+            SKIP_INSTALL=NO
+            ENABLE_PREVIEWS=NO
+            COMPILER_INDEX_STORE_ENABLE=NO
             build
+          )
+
+          if [ "${{ steps.xcode.outputs.profile }}" = "legacy" ]; then
+            set -o pipefail
+            xcodebuild "${XCODEBUILD_ARGS[@]}" 2>&1 | tee build.log
+            RESULT=${PIPESTATUS[0]}
+            if grep -q "BUILD SUCCEEDED" build.log; then
+              exit 0
+            fi
+            exit "$RESULT"
+          else
+            xcodebuild "${XCODEBUILD_ARGS[@]}"
+          fi
 
       - name: Verify .app exists
         working-directory: ${{ steps.project.outputs.dir }}
